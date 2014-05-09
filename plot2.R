@@ -1,0 +1,11 @@
+trial = read.table("household_power_consumption.txt",header=TRUE,sep=";",nrows=10)
+data = read.table("household_power_consumption.txt",header=TRUE,sep=";",skip=66636,nrows=2880,colClasses=classes,col.names=names(trial))
+attach(data)
+#Plot 2:
+plot(Global_active_power,type="l")
+axis(at=c(1,1440,2880),labels=c("Thus","Fri","Sat"),side=1,tick=TRUE)
+axis(side=2,tick=TRUE)
+box()
+dev.copy(png,'plot2.png')
+dev.off()
+graphics.off()
